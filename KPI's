@@ -1,0 +1,20 @@
+Total Customers =
+DISTINCTCOUNT(Customers[CustomerID])
+
+Churned Customers =
+CALCULATE(
+    [Total Customers],
+    Customers[Churn Flag] = 1
+)
+
+Churn Rate % =
+DIVIDE([Churned Customers], [Total Customers])
+
+Retention Rate % =
+1 - [Churn Rate %]
+
+Avg Tenure (Months) =
+AVERAGE(CallCentre[Tenure_Months])
+
+
+
